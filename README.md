@@ -134,7 +134,7 @@ This section describes the different types, and the encoding for their descripto
 | array32 | 0x84 [TypeDescriptor element] | Array of elements prefixed with an uint32 length. |
 | set8 | 0x85 [TypeDescriptor element] | Set of elements prefixed with an uint8 length. |
 | set16 | 0x86 [TypeDescriptor element] | Set of elements prefixed with an uint16 length. |
-| set32 | 0x88 [TypeDescriptor element] | Set of elements prefixed with an uint32 length. |
-| map8 | 0x89 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint8 length. |
-| map16 | 0x8A [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint16 length. |
-| map32 | 0x8B [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint32 length. |
+| set32 | 0x87 [TypeDescriptor element] | Set of elements prefixed with an uint32 length. |
+| map8 | 0x88 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint8 length. |
+| map16 | 0x89 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint16 length. |
+| map32 | 0x8A [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint32 length. |
