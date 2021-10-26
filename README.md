@@ -127,6 +127,9 @@ This section describes the different types, and the encoding for their descripto
 | bigint_32_8 | 0x23 | (Optional) Big integer with magnitude encoded in the Blob. Serialized inline as the (uint32 blobOffset, int8 signAndSize) sequence. |
 | bigint_32_16 | 0x24 | Big integer with magnitude encoded in the Blob. Serialized inline as the (uint32 blobOffset, int16 signAndSize) sequence. |
 | bigint_32_32 | 0x25 | Big integer with magnitude encoded in the Blob. Serialized inline as the (uint32 blobOffset, int32 signAndSize) sequence. |
+| char8 | 0x26 | 8 bit little-endian unsigned integer encoding for character code unit. |
+| char16 | 0x27 | 16 bit little-endian unsigned integer encoding for character code unit. |
+| char32 | 0x28 | 32 bit little-endian unsigned integer encoding for character code unit. |
 | struct | 0x80 [uint32 index] | User defined value type. |
 | fixedArray | 0x81 [uint32 size] [TypeDescriptor element] | Fixed length array. |
 | array8 | 0x82 [TypeDescriptor element] | Array of elements prefixed with an uint8 length. |
