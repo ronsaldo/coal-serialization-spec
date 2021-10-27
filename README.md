@@ -66,7 +66,8 @@ This section describes the layout of the cluster descriptions:
 
 | Field Name  |               Type            |                                Description                             |
 | ----------- | ----------------------------- | ---------------------------------------------------------------------- |
-| Name        | utf8_32_16                    | The name of the structure type. Must be unique.                        |
+| Name        | utf8_32_16                    | The name of the object type. Must be unique.                           |
+| Super type  | uint32                        | Cluster super type one-based index.                                    |
 | Field Count | uint16                        | The number of fields.                                                  |
 | Instances   | uint32                        | The number of instances that belong to this cluster.                   |
 | Fields      | FieldDescription[Field Count] | The description of the fields that are serialized in sequential order. |
@@ -89,7 +90,7 @@ This section describes the different types, and the encoding for their descripto
 
 | Type Name | Type Descriptor Encoding | Description |
 | --------- | ------------------------ | ----------- |
-| object | 0x00 | Object reference |
+| object | 0x00 | Untyped object reference. |
 | boolean8 | 0x01  | Single byte boolean. 0 Means false, everything else is true. |
 | boolean16 | 0x02  | Two bytes boolean. 0 Means false, everything else is true. Provided for completeness. |
 | boolean32 | 0x03  | Four bytes boolean. 0 Means false, everything else is true. Provided for completeness. |
@@ -130,14 +131,15 @@ This section describes the different types, and the encoding for their descripto
 | char8 | 0x26 | 8 bit little-endian unsigned integer encoding for character code unit. |
 | char16 | 0x27 | 16 bit little-endian unsigned integer encoding for character code unit. |
 | char32 | 0x28 | 32 bit little-endian unsigned integer encoding for character code unit. |
-| struct | 0x80 [uint32 index] | User defined value type. |
-| fixedArray | 0x81 [uint32 size] [TypeDescriptor element] | Fixed length array. |
-| array8 | 0x82 [TypeDescriptor element] | Array of elements prefixed with an uint8 length. |
-| array16 | 0x83 [TypeDescriptor element] | Array of elements prefixed with an uint16 length. |
-| array32 | 0x84 [TypeDescriptor element] | Array of elements prefixed with an uint32 length. |
-| set8 | 0x85 [TypeDescriptor element] | Set of elements prefixed with an uint8 length. |
-| set16 | 0x86 [TypeDescriptor element] | Set of elements prefixed with an uint16 length. |
-| set32 | 0x87 [TypeDescriptor element] | Set of elements prefixed with an uint32 length. |
-| map8 | 0x88 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint8 length. |
-| map16 | 0x89 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint16 length. |
-| map32 | 0x8A [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint32 length. |
+| struct | 0x80 [uint32 structureIndex] | User defined value type. |
+| typedObject | 0x81 [uint32 clusterIndex] | Typed object reference. |
+| fixedArray | 0x82 [uint32 size] [TypeDescriptor element] | Fixed length array. |
+| array8 | 0x83 [TypeDescriptor element] | Array of elements prefixed with an uint8 length. |
+| array16 | 0x84 [TypeDescriptor element] | Array of elements prefixed with an uint16 length. |
+| array32 | 0x85 [TypeDescriptor element] | Array of elements prefixed with an uint32 length. |
+| set8 | 0x86 [TypeDescriptor element] | Set of elements prefixed with an uint8 length. |
+| set16 | 0x87 [TypeDescriptor element] | Set of elements prefixed with an uint16 length. |
+| set32 | 0x88 [TypeDescriptor element] | Set of elements prefixed with an uint32 length. |
+| map8 | 0x89 [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint8 length. |
+| map16 | 0x8A [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint16 length. |
+| map32 | 0x8B [TypeDescriptor key] [TypeDescriptor value] | Set of elements prefixed with an uint32 length. |
