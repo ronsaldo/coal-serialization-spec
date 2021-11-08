@@ -131,6 +131,8 @@ This section describes the different types, and the encoding for their descripto
 | char8 | 0x26 | 8 bit little-endian unsigned integer encoding for character code unit. |
 | char16 | 0x27 | 16 bit little-endian unsigned integer encoding for character code unit. |
 | char32 | 0x28 | 32 bit little-endian unsigned integer encoding for character code unit. |
+| fixed16_16 | 0x29 | 16.16 bits fixed point number. Encoded as int32. |
+| fixed16_16_sat | 0x2A | 16.16 bits fixed point number with saturation arithmetic. Encoded as int32. The maximum and minimum values are used for encoding infinities. |
 | struct | 0x80 [uint32 structureIndex] | User defined value type. |
 | typedObject | 0x81 [uint32 clusterIndex] | Typed object reference. |
 | fixedArray | 0x82 [uint32 size] [TypeDescriptor element] | Fixed length array. |
